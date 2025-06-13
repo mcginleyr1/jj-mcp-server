@@ -5,12 +5,16 @@ edition = "2024"
 description = "MCP server for Jujutsu (jj) version control system"
 authors = ["Your Name <your.email@example.com>"]
 
+[lib]
+name = "jj_mcp_server"
+path = "src/lib.rs"
+
 [[bin]]
 name = "jj-mcp-server"
 path = "src/main.rs"
 
 [dependencies]
-mcp-sdk = "0.0.3"  # Note: You'll need to verify the actual MCP SDK version
+mcp-sdk = "0.0.3"                                  # Note: You'll need to verify the actual MCP SDK version
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 tokio = { version = "1.0", features = ["full"] }
@@ -18,4 +22,4 @@ anyhow = "1.0"
 
 [dev-dependencies]
 tokio-test = "0.4"
-
+tempfile = "3.8"
