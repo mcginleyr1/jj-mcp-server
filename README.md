@@ -144,15 +144,37 @@ cargo run
 
 ### Testing
 
+The project includes comprehensive unit and integration tests:
+
 ```bash
+# Run all tests
 cargo test
+
+# Run only unit tests
+cargo test --lib
+
+# Run integration tests (requires jj to be installed)
+cargo test --test integration_tests
+
+# Run integration tests that require a real jj repository
+cargo test --test integration_tests -- --ignored
 ```
+
+#### Test Coverage
+
+- **Unit Tests**: Parameter parsing, tool creation, command building, error handling
+- **Integration Tests**: Real jj command execution with temporary repositories
+- **Error Cases**: Invalid repositories, missing commands, malformed parameters
+
+The integration tests create temporary jj repositories and test actual command execution, while unit tests focus on the internal logic and API structure.
 
 ### Code Structure
 
-- `src/main.rs` - Main server implementation with MCP protocol handling
-- Tool implementations are organized as separate functions for each jj command
+- `src/lib.rs` - Library crate with public API, tool implementations, and unit tests
+- `src/main.rs` - Binary crate with MCP server setup and tool registration
+- `tests/integration_tests.rs` - Integration tests with real jj repositories
 - Parameter structs define the JSON schema for each tool's input
+- All jj command functions are organized as separate, well-documented functions
 
 ## Configuration
 
