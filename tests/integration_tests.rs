@@ -35,7 +35,6 @@ fn create_test_file(
 }
 
 #[test]
-#[ignore] // Run with: cargo test --test integration_tests -- --ignored
 fn test_status_tool_with_real_repo() {
     let temp_repo = match create_test_repo() {
         Ok(repo) => repo,
@@ -73,7 +72,6 @@ fn test_status_tool_with_real_repo() {
 }
 
 #[test]
-#[ignore] // Run with: cargo test --test integration_tests -- --ignored
 fn test_log_tool_with_real_repo() {
     let temp_repo = match create_test_repo() {
         Ok(repo) => repo,
@@ -109,7 +107,6 @@ fn test_log_tool_with_real_repo() {
 }
 
 #[test]
-#[ignore] // Run with: cargo test --test integration_tests -- --ignored
 fn test_new_tool_with_real_repo() {
     let temp_repo = match create_test_repo() {
         Ok(repo) => repo,
@@ -141,7 +138,6 @@ fn test_new_tool_with_real_repo() {
 }
 
 #[test]
-#[ignore] // Run with: cargo test --test integration_tests -- --ignored
 fn test_diff_tool_with_real_repo() {
     let temp_repo = match create_test_repo() {
         Ok(repo) => repo,
@@ -183,7 +179,6 @@ fn test_diff_tool_with_real_repo() {
 }
 
 #[test]
-#[ignore] // Run with: cargo test --test integration_tests -- --ignored
 fn test_commit_tool_with_real_repo() {
     let temp_repo = match create_test_repo() {
         Ok(repo) => repo,
@@ -225,7 +220,6 @@ fn test_commit_tool_with_real_repo() {
 }
 
 #[test]
-#[ignore] // Run with: cargo test --test integration_tests -- --ignored
 fn test_rebase_tool_error_handling() {
     let temp_repo = match create_test_repo() {
         Ok(repo) => repo,
