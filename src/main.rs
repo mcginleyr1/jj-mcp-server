@@ -3,7 +3,6 @@ use jj_mcp_server::*;
 use mcp_sdk::server::Server;
 use mcp_sdk::tools::Tools;
 use mcp_sdk::transport::ServerStdioTransport;
-use mcp_sdk::types::ServerCapabilities;
 use serde_json::json;
 
 fn create_tools() -> Tools {
@@ -218,13 +217,6 @@ async fn main() -> Result<()> {
     let server = Server::builder(transport)
         .name("jj-mcp-server")
         .version("1.0.0")
-        .capabilities(ServerCapabilities {
-            tools: Some(json!({})),
-            prompts: None,
-            resources: None,
-            logging: None,
-            experimental: None,
-        })
         .tools(tools)
         .build();
 
