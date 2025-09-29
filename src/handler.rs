@@ -1,9 +1,9 @@
 use async_trait::async_trait;
 use rust_mcp_sdk::schema::{
-    schema_utils::CallToolError, CallToolRequest, CallToolResult, ListToolsRequest,
-    ListToolsResult, RpcError,
+    CallToolRequest, CallToolResult, ListToolsRequest, ListToolsResult, RpcError,
+    schema_utils::CallToolError,
 };
-use rust_mcp_sdk::{mcp_server::ServerHandler, McpServer};
+use rust_mcp_sdk::{McpServer, mcp_server::ServerHandler};
 
 use crate::tools::JjTools;
 
@@ -28,17 +28,18 @@ impl ServerHandler for JjServerHandler {
         request: CallToolRequest,
         _runtime: &dyn McpServer,
     ) -> std::result::Result<CallToolResult, CallToolError> {
-        let tool_params: JjTools =
-            JjTools::try_from(request.params).map_err(CallToolError::new)?;
+        let tool_params: JjTools = JjTools::try_from(request.params).map_err(CallToolError::new)?;
 
         match tool_params {
             JjTools::StatusTool(tool) => tool.call_tool(),
             JjTools::LogTool(tool) => tool.call_tool(),
             JjTools::DiffTool(tool) => tool.call_tool(),
-            JjTools::CommitTool(tool) => tool.call_tool(),
+            JjTools::DescribeTool(tool) => tool.call_tool(),
+            JjTools::BookmarkCreateTool(tool) => tool.call_tool(),
+            JjTools::PushTool(tool) => tool.call_tool(),
+            JjTools::SyncTool(tool) => tool.call_tool(),
             JjTools::NewTool(tool) => tool.call_tool(),
             JjTools::RebaseTool(tool) => tool.call_tool(),
-            JjTools::GitCloneTool(tool) => tool.call_tool(),
         }
     }
 }
