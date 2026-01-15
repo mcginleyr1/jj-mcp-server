@@ -3,22 +3,20 @@ name = "jj-mcp-server"
 version = "1.0.0"
 edition = "2024"
 description = "MCP server for Jujutsu (jj) version control system"
-authors = ["Your Name <your.email@example.com>"]
 
 [[bin]]
 name = "jj-mcp-server"
 path = "src/main.rs"
 
 [dependencies]
-rust-mcp-sdk = "0.5.1"
+rmcp = { version = "0.12", features = ["server", "transport-io"] }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 schemars = "0.8"
 tokio = { version = "1.0", features = ["full"] }
 anyhow = "1.0"
 tracing = "0.1"
-tracing-subscriber = "0.3"
-async-trait = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
 
 [dev-dependencies]
 tokio-test = "0.4"
