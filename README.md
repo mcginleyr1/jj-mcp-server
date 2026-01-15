@@ -4,17 +4,17 @@ A Model Context Protocol (MCP) server for [Jujutsu (jj)](https://github.com/mart
 
 ## Tools
 
-| Tool | Description |
-|------|-------------|
-| `status` | Show working directory state |
-| `log` | View commit history and graph |
-| `diff` | Show changes in a revision |
-| `describe` | Set commit message for @ (does NOT create new commit) |
-| `new` | Create new empty commit (optionally from specific parent) |
-| `bookmark_create` | Create a named bookmark at a revision |
-| `push` | Push a bookmark to remote |
-| `sync` | Fetch from all remotes |
-| `rebase` | Move commits in the graph |
+| Tool              | Description                                               |
+|-------------------|-----------------------------------------------------------|
+| `status`          | Show working directory state                              |
+| `log`             | View commit history and graph                             |
+| `diff`            | Show changes in a revision                                |
+| `describe`        | Set commit message for @ (does NOT create new commit)     |
+| `new`             | Create new empty commit (optionally from specific parent) |
+| `bookmark_create` | Create a named bookmark at a revision                     |
+| `push`            | Push a bookmark to remote                                 |
+| `sync`            | Fetch from all remotes                                    |
+| `rebase`          | Move commits in the graph                                 |
 
 ## jj Workflow (for AI assistants)
 
@@ -55,6 +55,12 @@ Add to `~/.claude/mcp.json`:
     }
   }
 }
+```
+
+Alternatively 
+
+``` json
+claude mcp add --transport stdio jj-mcp-server jj-mcp-server
 ```
 
 ## Prerequisites
